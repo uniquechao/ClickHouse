@@ -5,15 +5,15 @@ toc_priority: 54
 toc_title: "\u67E5\u8BE2\u5206\u6790"
 ---
 
-# 采样查询探查器 {#sampling-query-profiler}
+#  采样查询探查器 {#sampling-query-profiler}
 
-ClickHouse运行允许分析查询执行的采样探查器。 使用探查器，您可以找到在查询执行期间使用最频繁的源代码例程。 您可以跟踪CPU时间和挂钟花费的时间，包括空闲时间。
+ClickHouse可以使用采样查询探查器 {#sampling-query-profiler}分析查询的实现过程。 使用探查器（sampling-query-profiler），您可以找到在查询执行期间使用最频繁的代码路径。 您可以跟踪CPU时间和Wall-time时间，包括空闲时间。
 
-使用概要分析器:
+使用探查器:
 
--   设置 [trace_log](../server-configuration-parameters/settings.md#server_configuration_parameters-trace_log) 服务器配置部分。
+-   启用方法：服务器配置中 [trace_log](../server-configuration-parameters/settings.md#server_configuration_parameters-trace_log)部分。
 
-    本节配置 [trace_log](../../operations/system-tables/trace_log.md#system_tables-trace_log) 系统表包含探查器运行的结果。 它是默认配置的。 请记住，此表中的数据仅对正在运行的服务器有效。 服务器重新启动后，ClickHouse不会清理表，所有存储的虚拟内存地址都可能无效。
+    本节中配置 [trace_log](../../operations/system-tables/trace_log.md#system_tables-trace_log) 的系统表包含探查器运行的结果。 它是默认配置的。 请记住，此表中的数据仅对当前正在运行探查器的服务器有效。 服务器重新启动后，ClickHouse不会清理表中的数据，所有存储的虚拟内存地址都可能无效。
 
 -   设置 [query_profiler_cpu_time_period_ns](../settings/settings.md#query_profiler_cpu_time_period_ns) 或 [query_profiler_real_time_period_ns](../settings/settings.md#query_profiler_real_time_period_ns) 设置。 这两种设置可以同时使用。
 
